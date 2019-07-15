@@ -21,7 +21,7 @@ const HooksContainer1 = () => {
     }, [stateValue])
 
     const incrementValue = () => {
-        setValue(stateValue +1)
+        setValue(stateValue + 1)
     }
     const decrementValue = () => {
         setValue(stateValue - 1)
@@ -54,7 +54,10 @@ const HooksContainer1 = () => {
             <button onClick = { () => context.addGlobalValue()}>Add Global </button>
             <button onClick = { () => context.decGlobalValue()}>Dec Global </button>
 
-            <div>
+            <button onClick = { () => context.dispatchContextTrue()}> Dispatch COntext  true</button>
+            <button onClick = { () => context.dispatchContextFalse()}>Dispatch COntext  false</button>
+
+            <div>rsc
                 <br/>
                     {
                     someValue ? <p>{someValue}</p> : <p>No value</p> 
@@ -63,6 +66,12 @@ const HooksContainer1 = () => {
                 {state.stateprop1
                 ? <p> state prop1 is true</p> : <p> state prop1 is False</p>}
                 <br/>
+
+                {context.reducerGlobalState
+                    ? <h4> stete prop2 is true </h4>
+                    : <h4> statte prop2 is False </h4>
+                }
+
                 <p>Local State: {stateValue} </p>
                 <br/>
                 <hr/>
