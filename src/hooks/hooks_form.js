@@ -82,8 +82,8 @@ const HooksForm = () => {
             </form>
             
             <div>
-                <p>Change: {userState.user_text_change}</p>
-                <p>Submit: {userState.user_state_submit}</p>
+                <p>Change: {userState.user_input_change}</p>
+                <p>Submit: {userState.user_input_submit}</p>
             </div>
             
 

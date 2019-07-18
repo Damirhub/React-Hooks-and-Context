@@ -7,7 +7,6 @@ import Krofna from '../utils/context';
 const HooksContainer1 = () => {
     
     const context = useContext(Krofna)
-    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", context)
 
 
 
@@ -32,9 +31,6 @@ const HooksContainer1 = () => {
     }
 
     const handleDispatchTrue = () => {
-        // dispatch(ACTIONS.SUCCESS)
-         // dispatch(type: "SUCCESS")
-
         dispatch(ACTIONS.success())
     }
 
@@ -44,42 +40,25 @@ const HooksContainer1 = () => {
     return (
         <div>
             React hooks
-            <button onClick = { () => incrementValue()}>Inc Local State </button>
+            <br/>
+            <button onClick = { () => changeUseEffectValue()}>Change Use Effect Value </button>
+            <br/>{  someValue ? <p>{someValue}</p> : <p>No value</p> }
+            <hr/>
+            <button onClick = { () => incrementValue()}>Inc Local State </button>~
             <button onClick = { () => decrementValue()}>Dec Local State </button>
-            <button onClick = { () => changeUseEffectValue()}>change Use Effect Value </button>
+            <h2>Local State: {stateValue} </h2>
 
-            <button onClick = { () => handleDispatchTrue()}>Dispatch Truee </button>
+            <button onClick = { () => handleDispatchTrue()}>Dispatch Truee </button>~
             <button onClick = { () => handleDispatchFalse()}>Dispatch False </button>
+            <h4> state prop1 from local HooksReducer state is  {state.stateprop1.toString()}</h4>
+            
+            <button onClick = { () => context.addGlobalValue()}>Add Global State </button>~
+            <button onClick = { () => context.decGlobalValue()}>Dec Global State</button>
+            <h2>Global State: {context.valueGlobalState}</h2>
+            <button onClick = { () => context.dispatchContextTrue()}> Dispatch Context true</button>~
+            <button onClick = { () => context.dispatchContextFalse()}>Dispatch Context false</button>
 
-            <button onClick = { () => context.addGlobalValue()}>Add Global </button>
-            <button onClick = { () => context.decGlobalValue()}>Dec Global </button>
-
-            <button onClick = { () => context.dispatchContextTrue()}> Dispatch COntext  true</button>
-            <button onClick = { () => context.dispatchContextFalse()}>Dispatch COntext  false</button>
-
-            <div>rsc
-                <br/>
-                    {
-                    someValue ? <p>{someValue}</p> : <p>No value</p> 
-                    }
-                <br/>
-                {state.stateprop1
-                ? <p> state prop1 is true</p> : <p> state prop1 is False</p>}
-                <br/>
-
-                {context.reducerGlobalState
-                    ? <h4> stete prop2 is true </h4>
-                    : <h4> statte prop2 is False </h4>
-                }
-
-                <p>Local State: {stateValue} </p>
-                <br/>
-                <hr/>
-                <p>Global State: {context.valueGlobalState}</p>
-
-            </div>
-
-            <h2>{stateValue}</h2>
+            <h4> state prop2 from context reducer is {context.reducerGlobalState.toString()} </h4>
         </div>
     );
 };
