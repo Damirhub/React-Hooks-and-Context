@@ -1,8 +1,10 @@
 import React, {useState, useReducer, useContext} from 'react';
 import * as ACTIONS from '../store/actions/actions'
 import * as UserReducer from '../store/hooks_state/user_input_hooks_reducer'
-
+import Context from '../utils/context'
 const HooksForm = () => {
+
+    const context = useContext(Context)
 
     const [valueChange, setValueChange] = useState('')
     const [valueSubmit, setValueSubmit] = useState('')
@@ -67,9 +69,9 @@ const HooksForm = () => {
             </div>
 
             {/* /**
-                |--------------------------------------------------
-                | useReducer version
-                |--------------------------------------------------
+            |--------------------------------------------------
+            | useReducer version
+            |--------------------------------------------------
             */ }
 
 
@@ -87,7 +89,25 @@ const HooksForm = () => {
             </div>
             
 
-        </div>
+            {/* /**
+                |--------------------------------------------------
+                | useReducer Context version
+                |--------------------------------------------------
+            */ }
+
+            <h2> React use Context Reducer </h2>
+
+                <form onSubmit = {context.useContextHandleSubmit}>
+                    <label>React useReducer </label>
+                    <input id = 'redContextId' type = 'text' onChange = {context.useContextHandleChange} />
+                    <button type = 'submit'> Submit </button>
+                </form>
+
+                <div>
+                    <p>Change: {context.useContextChange}</p>
+                    <p>Submit: {context.useContextSubmit}</p>
+                </div>
+            </div>
     );
 };
 
